@@ -1,0 +1,107 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+    paths-ignore:
+      - "**/*.md"
+      - "assets/**"
+      - "hardware/**"
+      - "mechanical/**"
+      - "3d-printing/**"
+  pull_request:
+    paths-ignore:
+      - "**/*.md"
+      - "assets/**"
+      - "hardware/**"
+      - "mechanical/**"
+      - "3d-printing/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    name: Format, Lint & Unit Tests
+    runs-on: ubuntu-latest
+    env:
+      RUSTUP_TOOLCHAIN: stable
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: dashboard/package-lock.json
+
+      - name: Install dashboard dependencies
+        working-directory: dashboard
+        run: npm ci
+
+      - name: Run dashboard unit tests & verify bundle freshness
+        working-directory: dashboard
+        run: |
+          npm test
+          npm run build
+          gzip -dc dashboard.html.gz | diff -u - dist/index.html
+
+      - name: Install stable Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - name: Cache Cargo dependencies
+        uses: Swatinem/rust-cache@v2
+        with:
+          shared-key: "host"
+
+      - name: Check Rust formatting
+        run: cargo fmt --check
+
+      - name: Run Rust Clippy & host unit tests
+        run: |
+          HOST_TARGET=$(rustc -vV | sed -n 's|host: ||p')
+          cargo clippy --lib --profile test --target "${HOST_TARGET}" -- -D warnings
+          cargo test --lib --target "${HOST_TARGET}"
+
+  firmware-esp32s3:
+    name: ESP32-S3 Firmware Build & Clippy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Install Xtensa ESP32-S3 toolchain
+        working-directory: /tmp
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUSTUP_TOOLCHAIN: stable
+        run: |
+          curl -fsSL https://github.com/esp-rs/espup/releases/latest/download/espup-x86_64-unknown-linux-gnu -o espup
+          chmod +x espup
+          ./espup install --targets esp32s3 --log-level info
+          . "$HOME/export-esp.sh"
+          echo "$PATH" | tr ':' '\n' | grep -F ".rustup/toolchains/esp" >> "$GITHUB_PATH"
+          echo "LIBCLANG_PATH=${LIBCLANG_PATH}" >> "$GITHUB_ENV"
+
+      - name: Cache Cargo dependencies
+        uses: Swatinem/rust-cache@v2
+        with:
+          shared-key: "esp32s3"
+
+      - name: Clippy (ESP32-S3 release)
+        run: cargo clippy --release -- -D warnings
+
+      - name: Build release firmware (SoftAP default)
+        run: env -u WIFI_SSID -u WIFI_PASS cargo build --release
+
+      - name: Check STA Wi-Fi mode
+        run: WIFI_SSID="CI_Test_SSID" WIFI_PASS="CI_Test_Password" cargo check --release

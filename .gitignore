@@ -1,0 +1,60 @@
+# --- Integrated Rust / ESP32-S3 Build ---
+target/
+**/*.rs.bk
+/*.bin
+/*.elf
+*.profraw
+*.profdata
+lcov.info
+
+# --- KiCad Hardware Files ---
+# Temporary and backup files
+*.bak
+*.000
+*.bck
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*-backups
+_autosave-*
+*.tmp
+*-save.pro
+*-save.kicad_pcb
+fp-info-cache
+hardware/Libraries/
+
+# Local user preferences (project-specific)
+*.kicad_prl
+
+# Netlist and autorouter files (usually not committed)
+*.net
+*.dsn
+*.ses
+
+# --- Mechanical & 3D Printing ---
+# Only keep the CAD scripts and final STLs/STEPs/renders.
+# Ignore generated Blender scenes, autosaves, and Python runtime artifacts.
+mechanical/*.blend*
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# --- Dashboard (Node.js/Vite) ---
+dashboard/node_modules/
+dashboard/dist/
+
+# --- Local Environment, Logs & Secrets ---
+.env
+.env.*
+!.env.example
+*.local
+*.log
+
+# --- Common IDE & OS ---
+.vscode/
+.idea/
+.DS_Store
+._*
+Thumbs.db
+*.swp
+*~

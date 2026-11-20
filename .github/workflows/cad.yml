@@ -1,0 +1,42 @@
+name: CAD
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "mechanical/**"
+      - ".github/workflows/cad.yml"
+  pull_request:
+    paths:
+      - "mechanical/**"
+      - ".github/workflows/cad.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  cad:
+    name: Mechanical CAD Geometry Verification
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Install OpenCASCADE runtime libraries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgl1 libglu1-mesa libxrender1 libgomp1
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+          cache-dependency-glob: "mechanical/uv.lock"
+
+      - name: Verify parametric CAD geometry and clearances
+        run: uv run --locked --project mechanical python mechanical/cad/verify_cad.py

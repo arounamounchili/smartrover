@@ -1,0 +1,523 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "ef3f0b96-9ed5-4f6f-98e6-24f53404416a")
+	(paper "A4")
+	(title_block
+		(title "${project_title}")
+		(date "2025-02-16")
+		(rev "${project_version}")
+	)
+	(lib_symbols)
+	(text "Overview"
+		(exclude_from_sim no)
+		(at 136.398 29.972 0)
+		(effects
+			(font
+				(size 7 7)
+				(thickness 1.4)
+				(bold yes)
+			)
+		)
+		(uuid "6548a382-f079-4ce9-969e-7a3ef514fb75")
+	)
+	(wire
+		(pts
+			(xy 177.8 93.98) (xy 203.2 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "05b49b47-0ca3-45cd-9931-ad6b0e67be52")
+	)
+	(wire
+		(pts
+			(xy 177.8 54.61) (xy 203.2 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1b0baefa-8221-4613-b8ab-35c9c782a2f9")
+	)
+	(wire
+		(pts
+			(xy 177.8 68.58) (xy 203.2 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "27623644-a6d8-40f3-92ce-2312a16e306c")
+	)
+	(wire
+		(pts
+			(xy 177.8 101.6) (xy 203.2 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2a144904-5577-4b3d-942c-fc39c7d8c831")
+	)
+	(wire
+		(pts
+			(xy 177.8 81.28) (xy 203.2 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3bbaf20e-31dc-450e-a40d-dbbaf146ce9d")
+	)
+	(wire
+		(pts
+			(xy 177.8 97.79) (xy 203.2 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4caa9f07-b737-47ed-a3d1-37469cea8bc7")
+	)
+	(wire
+		(pts
+			(xy 177.8 90.17) (xy 203.2 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "72f45eb5-d047-4816-a937-d1a319a74381")
+	)
+	(wire
+		(pts
+			(xy 177.8 73.66) (xy 203.2 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9bd3a8cf-b6b2-4a04-8eec-68eb2ed5c030")
+	)
+	(wire
+		(pts
+			(xy 177.8 85.09) (xy 203.2 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b5dbeee1-13e0-40fb-8038-d680e393055a")
+	)
+	(wire
+		(pts
+			(xy 177.8 64.77) (xy 203.2 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c6eac1f5-3a47-4639-a697-ae3efcc6a29e")
+	)
+	(wire
+		(pts
+			(xy 177.8 58.42) (xy 203.2 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c846027f-6744-4d45-8063-1bb97b27e6f2")
+	)
+	(wire
+		(pts
+			(xy 177.8 77.47) (xy 203.2 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e17b9c04-68be-4733-a3c2-36db365d8745")
+	)
+	(sheet
+		(at 25.4 50.8)
+		(size 63.5 63.5)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "1bcedb83-ca0a-4a93-874b-d130a109f7f6")
+		(property "Sheetname" "Power Supply"
+			(at 25.4 49.7234 0)
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.4)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "PowerSupply.kicad_sch"
+			(at 25.4 114.8846 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "SmartRover"
+				(path "/ef3f0b96-9ed5-4f6f-98e6-24f53404416a"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 203.2 50.8)
+		(size 63.5 63.5)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "5bdc3e19-a0ef-4eed-9d1c-e1d860a068d9")
+		(property "Sheetname" "Motors and IMU"
+			(at 203.2 49.7234 0)
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.4)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "SensorActuator.kicad_sch"
+			(at 203.2 114.8846 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "IMU_INT2" output
+			(at 203.2 68.58 180)
+			(uuid "e36dae79-a4e4-43f5-94bd-f88078ded297")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "IMU_INT1" output
+			(at 203.2 64.77 180)
+			(uuid "5ccd6a4c-7444-46cc-868c-4cfb61ced982")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "MOTOR_1_IN1" input
+			(at 203.2 97.79 180)
+			(uuid "a974917f-61ad-4afd-adf8-f92131e991fa")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "MOTOR_1_IN2" input
+			(at 203.2 101.6 180)
+			(uuid "484235ed-22b6-4b1d-916c-7c68f0e20fd7")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "MOTOR_0_IN1" input
+			(at 203.2 90.17 180)
+			(uuid "d7e9c70d-cb28-418d-a695-4a4dae3c46ef")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "MOTOR_0_IN2" input
+			(at 203.2 93.98 180)
+			(uuid "ced3feb0-0f16-4a05-be37-0ca378654090")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CAM_MISO" output
+			(at 203.2 77.47 180)
+			(uuid "fa5cca90-1ea8-4845-a27b-32306846f6d1")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CAM_SCK" input
+			(at 203.2 81.28 180)
+			(uuid "54c7f5e0-4810-4250-9214-4487a7ca3cc8")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CAM_CS" input
+			(at 203.2 85.09 180)
+			(uuid "3bcae5f3-2b21-4e6f-bac7-7f2876d2e89b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CAM_MOSI" input
+			(at 203.2 73.66 180)
+			(uuid "f4eed31d-9de9-4851-bef4-8030c897e701")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "MCU_SCL" bidirectional
+			(at 203.2 58.42 180)
+			(uuid "dd9e7f2c-a0cd-478d-92aa-98f4bced6b36")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "MCU_SDA" bidirectional
+			(at 203.2 54.61 180)
+			(uuid "da7dc361-faba-4f1f-97a5-24adc4a5e655")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "SmartRover"
+				(path "/ef3f0b96-9ed5-4f6f-98e6-24f53404416a"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 114.3 50.8)
+		(size 63.5 64.77)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "a1f8dfe2-71bf-421d-8ccc-7f989212243e")
+		(property "Sheetname" "Microcontroller"
+			(at 114.3 50.0884 0)
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.4)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Microcontroller.kicad_sch"
+			(at 114.3 116.1546 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "IMU_INT1" input
+			(at 177.8 64.77 0)
+			(uuid "6ec73264-c1fe-4dad-a3d4-7fa3cd1c7f71")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "IMU_INT2" input
+			(at 177.8 68.58 0)
+			(uuid "5e6bfb27-1ed0-48e9-b693-c4044535fad0")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "MOTOR_0_IN2" output
+			(at 177.8 93.98 0)
+			(uuid "12c8b666-8bb7-4f6d-809a-49bf34ccb66b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "MOTOR_1_IN2" output
+			(at 177.8 101.6 0)
+			(uuid "7cb3db82-57ec-4087-b83a-9a3ab19f2f28")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "MOTOR_1_IN1" output
+			(at 177.8 97.79 0)
+			(uuid "176c5a4b-9cf4-470a-8c30-ecd79a74fb70")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "MOTOR_0_IN1" output
+			(at 177.8 90.17 0)
+			(uuid "8958d1b1-222a-4171-98b8-624885bed29b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "CAM_MOSI" output
+			(at 177.8 73.66 0)
+			(uuid "dd1171dc-4e19-4d68-abc6-14eeed84bf84")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "CAM_SCK" output
+			(at 177.8 81.28 0)
+			(uuid "09e6341c-a26e-458d-8518-575cbc954253")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "CAM_MISO" input
+			(at 177.8 77.47 0)
+			(uuid "aa5303b7-25a3-4171-926a-60d9b4655336")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "CAM_CS" output
+			(at 177.8 85.09 0)
+			(uuid "ca8307db-ff89-43ad-86c7-61ee8bea57ad")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "MCU_SDA" bidirectional
+			(at 177.8 54.61 0)
+			(uuid "975774a6-83c5-4f2c-b70a-ef480e818147")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "MCU_SCL" bidirectional
+			(at 177.8 58.42 0)
+			(uuid "9712a1d5-8e2f-4d72-889b-82857f8dc032")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(instances
+			(project "SmartRover"
+				(path "/ef3f0b96-9ed5-4f6f-98e6-24f53404416a"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

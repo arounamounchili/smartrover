@@ -1,0 +1,12 @@
+[project]
+name = "smartrover-mechanical"
+version = "0.1.0"
+description = "Parametric build123d CAD models, STL/STEP exporter, and geometry verification for SmartRover"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "build123d==0.13.0",
+]
+
+[tool.uv]
+package = false

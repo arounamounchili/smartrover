@@ -1,0 +1,54 @@
+[package]
+name         = "smartrover"
+version      = "0.1.0"
+edition      = "2024"
+rust-version = "1.91"
+license      = "MIT"
+readme       = "README.md"
+repository   = "https://github.com/arounamounchili/smartrover"
+description  = "ESP32-S3 no_std async Rust firmware for a 4WD teleoperated mobile robot"
+
+[[bin]]
+name  = "smartrover"
+test  = false
+bench = false
+
+[dependencies]
+embedded-hal = "1.0.0"
+
+[target.'cfg(target_arch = "xtensa")'.dependencies]
+embedded-io-async = "0.7.0"
+heapless = "0.9.4"
+log = "0.4.35"
+serde = { version = "1.0.229", default-features = false, features = ["derive"] }
+serde-json-core = "0.7.0"
+static_cell = "2.1.1"
+
+esp-hal = { version = "1.1.2", features = ["esp32s3", "unstable", "log-04"] }
+esp-rtos = { version = "0.3.0", features = ["esp32s3", "embassy", "esp-alloc", "esp-radio", "log-04"] }
+esp-radio = { version = "0.18.0", features = ["esp32s3", "wifi", "esp-alloc", "log-04"] }
+esp-bootloader-esp-idf = { version = "0.5.0", features = ["esp32s3", "log-04"] }
+esp-alloc = { version = "0.10.0", features = ["esp32s3"] }
+esp-backtrace = { version = "0.19.0", features = ["esp32s3", "panic-handler", "println"] }
+esp-println = { version = "0.17.0", features = ["esp32s3", "log-04"] }
+
+embassy-executor = "0.10.0"
+embassy-time = "0.5.1"
+embassy-sync = "0.8.0"
+embassy-net = { version = "0.9.1", features = ["tcp", "udp", "dhcpv4", "medium-ethernet", "proto-ipv4"] }
+embassy-futures = "0.1.2"
+
+[profile.dev]
+opt-level = "s"
+
+[profile.release]
+codegen-units    = 1
+debug            = 2
+debug-assertions = false
+incremental      = false
+lto              = 'fat'
+opt-level        = 's'
+overflow-checks  = false
+
+[lints.rust]
+unreachable_pub = "warn"

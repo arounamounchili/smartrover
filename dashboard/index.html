@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartRover</title>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-left">
+      <span class="app-title">SmartRover</span>
+      <span class="divider">/</span>
+      <span id="gamepad-text" class="controller-status">No controller detected (WASD or pointer)</span>
+    </div>
+
+    <div class="topbar-right">
+      <div class="kv-item">
+        <span class="kv-label">State</span>
+        <span id="mode-pill" class="kv-val" aria-live="polite">STANDBY</span>
+      </div>
+      <div class="kv-item">
+        <span class="kv-label">Sensors</span>
+        <span id="sensor-pill" class="kv-val" aria-live="polite">--</span>
+      </div>
+      <div class="kv-item">
+        <span class="kv-label">Battery</span>
+        <span id="batt-pill" class="kv-val">--%</span>
+      </div>
+      <div id="link-pill" class="conn-badge offline">
+        <span class="status-dot"></span>
+        <span id="link-text" aria-live="polite">Offline</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- Camera Panel -->
+    <section class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Camera Stream (OV5642)</span>
+        <button id="stream-toggle" type="button" class="btn btn-sm" aria-pressed="false">Start Stream</button>
+      </div>
+
+      <div class="camera-body">
+        <img id="video-feed" class="video-feed" style="display: none;" alt="Camera stream" />
+        <div id="video-placeholder" class="video-placeholder">
+          <p id="video-title" class="empty-title">Stream inactive</p>
+          <p id="video-sub" class="empty-sub">Click "Start Stream" to connect to /stream</p>
+        </div>
+      </div>
+
+      <div class="panel-footer">
+        <div class="readout-group">
+          <span>Throttle: <strong id="thr-val">0%</strong></span>
+          <span>Steering: <strong id="str-val">0%</strong></span>
+          <span>Input: <strong id="input-source-tag">Idle</strong></span>
+        </div>
+        <div class="key-hints">
+          <span><kbd>WASD</kbd> Drive</span>
+          <span><kbd>1-3</kbd> Gear</span>
+          <span><kbd>Space</kbd> Brake</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Controls Panel -->
+    <aside class="panel controls-panel">
+      <div class="control-section">
+        <div class="section-head">
+          <span class="section-title">X/Y Input</span>
+          <span class="section-meta">Left stick or drag</span>
+        </div>
+        <div class="pad-container">
+          <canvas id="joystick-canvas" width="176" height="176"></canvas>
+        </div>
+      </div>
+
+      <div class="control-section">
+        <div class="section-head">
+          <span class="section-title">Speed Limit</span>
+          <span id="gear-hint" class="section-meta">LB / RB</span>
+        </div>
+        <div class="segmented">
+          <button type="button" class="gear-btn" data-gear="1" aria-pressed="false">Crawl 45%</button>
+          <button type="button" class="gear-btn active" data-gear="2" aria-pressed="true">Normal 75%</button>
+          <button type="button" class="gear-btn" data-gear="3" aria-pressed="false">Sport 100%</button>
+        </div>
+      </div>
+
+      <div class="control-section">
+        <div class="section-head">
+          <span class="section-title">Forward Range (VL53L0X)</span>
+          <span id="adas-tag" class="tag tag-neutral">OFFLINE</span>
+        </div>
+        <div class="metric-box">
+          <div class="metric-row">
+            <span class="metric-label">Distance</span>
+            <span id="dist" class="metric-value">-- mm</span>
+          </div>
+          <div class="meter">
+            <div id="dist-bar" class="meter-fill" style="width: 0%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-section">
+        <div class="section-head">
+          <span class="section-title">Motor Duty</span>
+          <span class="section-meta">MCPWM0</span>
+        </div>
+        <div class="motors-grid">
+          <div class="metric-box">
+            <div class="metric-row">
+              <span class="metric-label">Left</span>
+              <span id="left-pwm" class="metric-value">0%</span>
+            </div>
+            <div class="meter">
+              <div id="left-bar" class="meter-fill" style="width: 0%"></div>
+            </div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-row">
+              <span class="metric-label">Right</span>
+              <span id="right-pwm" class="metric-value">0%</span>
+            </div>
+            <div class="meter">
+              <div id="right-bar" class="meter-fill" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-row">
+        <button id="adas-btn" type="button" class="btn btn-toggle active" aria-pressed="true">Assist: On</button>
+        <button id="ebrake-btn" type="button" class="btn btn-brake" aria-pressed="false">Brake</button>
+      </div>
+    </aside>
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
